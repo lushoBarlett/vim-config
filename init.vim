@@ -18,6 +18,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'nmac427/guess-indent.nvim'
 Plug 'eandrju/cellular-automaton.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'lervag/vimtex'
+Plug 'rose-pine/neovim', { 'branch': 'main' }
 
 " Initialize plugin system
 call plug#end()
@@ -62,8 +64,6 @@ set scrolloff=10
 " php stuff
 let php_sql_query = 1
 let php_htmlInStrings = 1
-
-colorscheme gruvbox
 
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
@@ -337,4 +337,9 @@ let g:mkdp_combine_preview_auto_refresh = 1
 
 " GUESS INDENT
 lua require('guess-indent').setup {}
+
+" theme
+lua require('rose-pine').setup({ variant = 'auto' })
+
+colorscheme rose-pine
 
