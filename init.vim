@@ -7,7 +7,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'morhetz/gruvbox'
@@ -20,6 +19,9 @@ Plug 'eandrju/cellular-automaton.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'lervag/vimtex'
 Plug 'rose-pine/neovim', { 'branch': 'main' }
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 
 " Initialize plugin system
 call plug#end()
@@ -44,9 +46,6 @@ let g:NERDTreeColorMapCustom = {
   \ }
 
 let g:NERDTreeIgnore = ['^node_modules$']
-
-" ctrlp
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " j/k will move virtual lines (lines that wrap)
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
@@ -342,4 +341,11 @@ lua require('guess-indent').setup {}
 lua require('rose-pine').setup({ variant = 'auto' })
 
 colorscheme rose-pine
+
+lua require('lspconfig').hls.setup{}
+
+" Telescope
+
+nnoremap <C-p> <cmd>Telescope find_files<cr>
+nnoremap <C-f> <cmd>Telescope live_grep<cr>
 

@@ -2,8 +2,11 @@
 
 My NeoVim configuration and installation instructions so I don't lose them ever again! Is mostly based off of Ben Awad's configuration, but that may not be the case forever.
 
-# pack folder
+### Copilot
 
-Remember to install Copilot by cloning the repository!
+Remember to install Copilot by cloning the [repository](https://github.com/github/copilot.vim)!
 
-The folder to use is pack/github/start
+### Telescope
+
+You need to install fd for Telescope to work properly.
+

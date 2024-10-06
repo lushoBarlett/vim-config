@@ -1,0 +1,14 @@
+{
+  "haskell.languageServer": {
+    "command": "haskell-language-server-wrapper",
+    "args": ["--lsp"],
+    "filetypes": ["haskell", "lhaskell"],
+    "initializationOptions": {
+      "languageServerHaskell": {
+        "hlintOn": true,
+        "maxNumberOfProblems": 10,
+        "completionSnippetsOn": true
+      }
+    }
+  }
+}
