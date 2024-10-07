@@ -349,3 +349,10 @@ lua require('lspconfig').hls.setup{}
 nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <C-f> <cmd>Telescope live_grep<cr>
 
+" Latex specification
+au BufNewFile,BufRead *.tex
+    \ set nocursorline |
+    \ set nornu |
+    \ set number |
+    \ let g:loaded_matchparen=1 |
+
