@@ -224,7 +224,7 @@ let g:copilot#enable = 1
 " MARKDOWN
 " set to 1, nvim will open the preview window after entering the Markdown buffer
 " default: 0
-let g:mkdp_auto_start = 0
+let g:mkdp_auto_start = 1
 
 " set to 1, the nvim will auto close current preview window when changing
 " from Markdown buffer to another buffer
@@ -258,7 +258,7 @@ let g:mkdp_open_ip = ''
 " valid: `/path/with\ space/xxx`
 " invalid: `/path/with\\ space/xxx`
 " default: ''
-let g:mkdp_browser = ''
+let g:mkdp_browser = '/usr/bin/brave-browser'
 
 " set to 1, echo preview page URL in command line when opening preview page
 " default is 0
@@ -342,7 +342,8 @@ lua require('rose-pine').setup({ variant = 'auto' })
 
 colorscheme rose-pine
 
-lua require('lspconfig').hls.setup{}
+" enable haskell lsp
+lua vim.lsp.enable('hls')
 
 " Telescope
 
@@ -355,4 +356,8 @@ au BufNewFile,BufRead *.tex
     \ set nornu |
     \ set number |
     \ let g:loaded_matchparen=1 |
+
+" disable unused providers
+let g:loaded_perl_provider = 0
+let g:loaded_ruby_provider = 0
 
