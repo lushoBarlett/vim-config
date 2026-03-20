@@ -21,7 +21,7 @@ Plug 'lervag/vimtex'
 Plug 'rose-pine/neovim', { 'branch': 'main' }
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+Plug 'nvim-telescope/telescope.nvim', { 'branch': 'master' }
 
 " Initialize plugin system
 call plug#end()
