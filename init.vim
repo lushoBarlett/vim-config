@@ -45,6 +45,9 @@ let g:NERDTreeColorMapCustom = {
 
 let g:NERDTreeIgnore = ['^node_modules$']
 
+" Set localleader for LaTeX file keybindings
+let g:maplocalleader = ","
+
 " j/k will move virtual lines (lines that wrap)
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
@@ -71,6 +74,7 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-json',
   \ 'coc-pyright',
+  \ 'coc-texlab',
   \ ]
 " from readme
 " if hidden is not set, TextEdit might fail.
@@ -339,6 +343,27 @@ au BufNewFile,BufRead *.tex
     \ set nornu |
     \ set number |
     \ let g:loaded_matchparen=1 |
+
+" VimTeX settings
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_method = 'latexmk'
+let g:vimtex_compiler_latexmk = {
+    \ 'continuous' : 1,
+    \ 'options' : ['-xelatex', '-verbose', '-file-line-error', '-synctex=1', '-interaction=nonstopmode'],
+    \ }
+
+" VimTeX keybindings
+autocmd FileType tex nnoremap <localleader>c <Plug>(vimtex-compile)
+autocmd FileType tex nnoremap <localleader>v <Plug>(vimtex-view)
+autocmd FileType tex nnoremap <localleader>s <Plug>(vimtex-stop)
+autocmd FileType tex nnoremap <localleader>e <Plug>(vimtex-errors)
+autocmd FileType tex nnoremap <localleader>t <Plug>(vimtex-toc-open)
+autocmd FileType tex nnoremap <localleader>g <Plug>(vimtex-toggle-mode)
+autocmd FileType tex nnoremap <localleader>d <Plug>(vimtex-context-menu)
+
+" LaTeX conceal (pretty symbols)
+autocmd FileType tex set conceallevel=2
+autocmd FileType tex set concealcursor=nv
 
 " disable unused providers
 let g:loaded_perl_provider = 0
