@@ -329,8 +329,7 @@ lua require('rose-pine').setup({ variant = 'auto' })
 
 colorscheme rose-pine
 
-" enable haskell lsp
-lua vim.lsp.enable('hls')
+" enable haskell lsp via coc (see coc-settings.json)
 
 " Telescope
 
